@@ -26,6 +26,8 @@ button {
   font-size: 18px;
   border: none;
   outline: none;
+  background-color: transparent;
+  cursor: pointer;
   @media screen and (max-width: 1140px) {
     font-size: 14px;
   }
@@ -39,4 +41,9 @@ h5,
 h6,
 p {
   margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
 }

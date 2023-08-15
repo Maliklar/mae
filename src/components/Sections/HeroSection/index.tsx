@@ -4,13 +4,16 @@ import HeroImage from "@/assets/images/hero.png";
 import Button from "@/components/Button";
 
 import { FaPlay } from "react-icons/fa";
+import TextTransition from "@/components/TextTransition";
 
 const HeroSection = () => {
   return (
     <section className={styles.container}>
       <div className={styles.start}>
         <h1 className={styles.h1}>
-          Changing your <span>eating</span> habits
+          Changing your{" "}
+          <TextTransition strings={["eating", "lifestyle", "sleeping"]} />{" "}
+          habits
         </h1>
         <p className={styles.p}>
           Always take care of your health starting from the food menu that you

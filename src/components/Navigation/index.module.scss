@@ -4,21 +4,107 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2.5rem;
-
   color: white;
   z-index: 10;
+  @media screen and (max-width: 660px) {
+    padding: 1rem 1rem;
+  }
   .nav {
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 660px) {
       display: none;
     }
     .ul {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 2.4rem;
+      margin: 0px;
       list-style-type: none;
       .li {
+        white-space: nowrap;
         font-weight: 600;
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          height: 1px;
+          background-color: white;
+          width: 100%;
+          top: 100%;
+          transform: scale(0);
+          transition: transform 0.3s;
+        }
+
+        &:hover::after {
+          transform: scale(1);
+        }
       }
+    }
+  }
+
+  .hamburgerButton {
+    background-color: transparent;
+    cursor: pointer;
+    display: none;
+    @media screen and (max-width: 660px) {
+      display: block;
+    }
+  }
+
+  .sideMenu {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 100dvw;
+    background-color: rgba(0, 0, 0, 0.495);
+    backdrop-filter: blur(3px);
+    color: black;
+    transform: translate(0%);
+    transition: transform 0.3s;
+
+    &[data-isOpen="false"] {
+      transform: translate(-130%) skew(-8deg);
+    }
+
+    .ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+      background-color: white;
+      list-style-type: none;
+      margin: 0px;
+      padding: 1.5rem;
+      width: 70%;
+
+      .li {
+        white-space: nowrap;
+        font-weight: 600;
+        font-size: 1.3rem;
+        padding-bottom: 0.5rem;
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          height: 1px;
+          background-color: black;
+          width: 100%;
+          top: 100%;
+          transform: scale(0);
+          transition: transform 0.3s;
+        }
+
+        &:hover::after {
+          transform: scale(1);
+        }
+      }
+    }
+    .closeButton {
+      align-self: flex-start;
+      justify-self: flex-end;
+      margin: 1rem;
+      color: white;
     }
   }
 }
