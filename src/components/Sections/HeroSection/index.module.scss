@@ -28,23 +28,42 @@
     align-items: center;
     gap: 1rem;
     flex: 1;
+
     & > * {
       max-width: 420px;
       width: 100%;
     }
     .h1 {
+      animation-name: enterFromLeft;
+      animation-duration: 0.5s;
+      animation-delay: 0s;
+      animation-fill-mode: forwards;
+
       font-size: 4.16rem;
       @media screen and (max-width: 825px) {
         font-size: 3rem;
       }
+
       span {
         color: $color-gold;
       }
+    }
+    .p {
+      animation-name: enterFromLeft;
+      animation-duration: 0.5s;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      opacity: 0;
     }
     .actions {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      animation-name: enterFromLeft;
+      animation-duration: 0.5s;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+      opacity: 0;
 
       .playButton {
         display: flex;
@@ -73,6 +92,10 @@
     flex: 1;
     margin-top: auto;
     z-index: 1;
+    animation-name: enterFromRight;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
 
     .imageContainer {
       display: block;
@@ -96,5 +119,33 @@
         max-height: 320px;
       }
     }
+  }
+}
+
+@keyframes enterFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes enterFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
   }
 }
