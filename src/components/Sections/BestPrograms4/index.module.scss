@@ -5,12 +5,6 @@
   margin: 2.5rem;
   color: #73509f;
 
-  .h2 {
-    display: flex;
-    align-items: center;
-    gap: 1ch;
-  }
-
   .content {
     display: flex;
     .start {
@@ -18,68 +12,14 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-
-      .cardsContainer {
-        display: flex;
-        flex-direction: column;
-        max-height: 600px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        gap: 10px;
-        padding: 0.5rem;
-        list-style-type: none;
-        margin: 0px;
-        border-radius: 15px;
-
-        &::-webkit-scrollbar {
-          width: 8px;
-        }
-        &::-webkit-scrollbar-thumb {
-          background-color: #73509f;
-          border-radius: 8px;
-        }
-        &::-webkit-scrollbar-track {
-          background: rgba(137, 69, 236, 0.17);
-          border-radius: 12px;
-        }
-
-        & > * {
-          max-width: 80%;
-        }
-      }
+      min-height: 500px;
     }
 
     .end {
       flex: 1;
-
-      .controls {
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-        padding: 2rem 0rem;
-
-        .button {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid #7d7d7dab;
-          color: #73509f;
-          height: 50px;
-          width: 50px;
-          font-weight: 900;
-          font-size: 1.2em;
-          border-radius: 100%;
-          background-color: white;
-        }
-      }
-      .swiper {
-        display: flex;
-        padding: 1rem;
-        .swiperItem {
-          display: flex;
-          gap: 1rem;
-        }
-      }
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
     }
   }
 }
