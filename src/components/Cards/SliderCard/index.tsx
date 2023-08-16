@@ -32,9 +32,8 @@ const SliderCard = ({ items: initialItems, Icon }: Props) => {
   const [lastClick, setLastClick] = useState(0);
 
   const nextClickHandler = () => {
-    console.log("HERE");
     setIndex((i) => {
-      if (i < items.length) {
+      if (i + 1 < items.length) {
         return i + 1;
       }
       return i;
@@ -43,7 +42,7 @@ const SliderCard = ({ items: initialItems, Icon }: Props) => {
   };
   const prevClickHandler = () => {
     setIndex((i) => {
-      if (i > 0) {
+      if (i - 1 >= 0) {
         return i - 1;
       }
       return i;

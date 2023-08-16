@@ -74,10 +74,54 @@
       }
       .swiper {
         display: flex;
-        padding: 1rem;
+        padding-inline-start: 1rem;
+        transition: transform 0.3s;
+        overflow: hidden;
+
         .swiperItem {
           display: flex;
           gap: 0.5rem;
+          transition: all 0.3s;
+          &[data-direction="1"] {
+            &[data-state="entering"] {
+              position: absolute;
+              transform: translateX(100%);
+            }
+            &[data-state="entered"] {
+              transform: translateX(0%);
+              position: relative;
+
+            }
+            &[data-state="exiting"] {
+              transform: translateX(-100%);
+              position: relative;
+
+            }
+            &[data-state="exited"] {
+              transform: translateX(100%);
+              position: absolute;
+            }
+          }
+          &[data-direction="0"]{
+            &[data-state="entering"] {
+              position: absolute;
+              transform: translateX(-100%);
+            }
+            &[data-state="entered"] {
+              transform: translateX(0%);
+              position: relative;
+              
+            }
+            &[data-state="exiting"] {
+              transform: translateX(100%);
+              position: relative;
+            }
+            &[data-state="exited"] {
+              transform: translateX(-100%);
+              position: absolute;
+
+            }
+          }
         }
       }
     }

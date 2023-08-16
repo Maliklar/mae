@@ -30,41 +30,35 @@
       gap: 1rem;
       transition: transform 0.3s;
 
-      &[data-direction="0"] {
+      &[data-direction="1"] {
         &[data-state="entering"] {
           position: absolute;
           transform: translateX(100%);
-          // opacity: 0;
         }
         &[data-state="entered"] {
           transform: translateX(0%);
-          opacity: 1;
         }
         &[data-state="exiting"] {
           transform: translateX(-100%);
-          opacity: 1;
         }
         &[data-state="exited"] {
           transform: translateX(100%);
-          // opacity: 0;
         }
       }
-      &[data-state="entering"] {
-        position: absolute;
-        transform: translateX(-100%);
-        // opacity: 0;
-      }
-      &[data-state="entered"] {
-        transform: translateX(0%);
-        opacity: 1;
-      }
-      &[data-state="exiting"] {
-        transform: translateX(100%);
-        opacity: 1;
-      }
-      &[data-state="exited"] {
-        transform: translateX(-100%);
-        // opacity: 0;
+      &[data-direction="0"]{
+        &[data-state="entering"] {
+          position: absolute;
+          transform: translateX(-100%);
+        }
+        &[data-state="entered"] {
+          transform: translateX(0%);
+        }
+        &[data-state="exiting"] {
+          transform: translateX(100%);
+        }
+        &[data-state="exited"] {
+          transform: translateX(-100%);
+        }
       }
     }
   }
