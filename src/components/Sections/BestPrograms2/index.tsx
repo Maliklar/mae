@@ -3,31 +3,11 @@ import Hero2 from "@/assets/images/hero-2.png";
 import BadgeCard from "@/components/Cards/BadgeCard";
 import Tag from "@/components/Tag";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import { GrDiamond } from "react-icons/gr";
-import { isVisible } from "../BestPrograms1";
 import styles from "./index.module.scss";
 const BestPrograms2 = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    // Clearly not the optimal solution
-    const interval = setInterval(() => {
-      if (!sectionRef.current) return;
-
-      if (isVisible(sectionRef.current)) {
-        setVisible(true);
-        clearInterval(interval);
-      }
-    });
-  }, []);
   return (
-    <section
-      className={styles.container}
-      ref={sectionRef}
-      data-visible={visible}
-    >
+    <section className={styles.container}>
       <div className={styles.start}>
         <Image
           src={Hero2.src}

@@ -1,33 +1,15 @@
 "use client";
 import Tag from "@/components/Tag";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { BsShield } from "react-icons/bs";
 import { FaCrown, FaPlay } from "react-icons/fa";
 import { GiCupcake, GiHotMeal } from "react-icons/gi";
 import { ImSpoonKnife } from "react-icons/im";
 import styles from "./index.module.scss";
 const BestPrograms1 = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    // Clearly not the optimal solution
-    const interval = setInterval(() => {
-      if (!sectionRef.current) return;
-
-      if (isVisible(sectionRef.current)) {
-        setVisible(true);
-        clearInterval(interval);
-      }
-    });
-  }, []);
   return (
-    <section
-      className={styles.container}
-      data-visible={visible}
-      ref={sectionRef}
-    >
+    <section className={styles.container}>
       <h2 className={styles.h2}>
         <Tag Icon={FaCrown} /> Our Best Programs
       </h2>
@@ -73,6 +55,10 @@ export default BestPrograms1;
 
 export function isVisible(e: HTMLElement) {
   const rect = e.getBoundingClientRect();
+  console.log(
+    rect.top >= 0 &&
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+  );
   return (
     rect.top >= 0 &&
     rect.top <= (window.innerHeight || document.documentElement.clientHeight)

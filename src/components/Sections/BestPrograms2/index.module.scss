@@ -1,40 +1,22 @@
+@import "@/styles/animations.module.scss";
+
 .container {
   display: flex;
   padding: 2.5rem;
-  overflow: hidden;
-
-  transition: transform 0.3s;
-
-  &[data-visible="true"] {
-    .start {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-
-    .end {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-  }
 
   .start {
-    transition: inherit;
-    opacity: 0;
     min-height: 500px;
     flex: 1;
-    transform: translateX(-100%);
+    @extend .slideFromLeft;
   }
 
   .end {
-    opacity: 0;
-    transform: translateX(100%);
-    transition: inherit;
-
     display: flex;
     flex-direction: column;
     gap: 2rem;
     color: #73509f;
     flex: 1;
+    @extend .slideFromRight;
 
     .h2 {
       display: flex;
@@ -49,6 +31,11 @@
       gap: 1.6rem;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
+
+      @media screen and (max-width: 400px) {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
   @media screen and (max-width: 780px) {

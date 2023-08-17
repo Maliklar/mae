@@ -1,3 +1,5 @@
+@import "@/styles/animations.module.scss";
+
 .container {
   display: flex;
   flex-direction: column;
@@ -5,49 +7,62 @@
   margin: 2.5rem;
   color: #73509f;
 
-  transition: opacity 0.3s;
-
-  &[data-visible="true"] {
-    opacity: 1;
+  @media screen and (max-width: 1140px) {
+    margin: 0.5rem;
+    margin-top: 2.5rem;
   }
-  opacity: 0;
   .h2 {
     display: flex;
     align-items: center;
     gap: 1ch;
   }
 
-  @media screen and (max-width: 1120px) {
-    padding: 0.5rem;
-    margin: 0.5rem;
-    .content {
+  .content {
+    display: flex;
+
+    @media screen and (max-width: 1140px) {
       flex-direction: column;
-    }
-  }
-  @media screen and (max-width: 700px) {
-    .content {
+
+      .start {
+        gap: 0.5rem;
+        .cardsContainer {
+          gap: 0.5rem !important;
+          & > * {
+            width: 100% !important;
+            max-width: unset !important;
+          }
+        }
+      }
+
       .end {
         .swiper {
+          overflow-x: auto !important;
+          &::-webkit-scrollbar {
+            height: 8px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: #73509f;
+            border-radius: 8px;
+          }
+          &::-webkit-scrollbar-track {
+            background: rgba(137, 69, 236, 0.17);
+            border-radius: 12px;
+          }
           .swiperItem {
-            justify-content: flex-start;
-            position: relative;
-
+            display: flex;
+            justify-content: center;
             overflow-x: auto;
           }
         }
       }
     }
-  }
 
-  .content {
-    display: flex;
-    overflow: hidden;
     .start {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 1rem;
-
+      @extend .slideFromLeft;
       .cardsContainer {
         display: flex;
         flex-direction: column;
@@ -80,6 +95,7 @@
 
     .end {
       flex: 1.3;
+      @extend .slideFromRight;
 
       .controls {
         display: flex;
@@ -113,8 +129,6 @@
 
         .swiperItem {
           display: flex;
-          justify-content: center;
-          width: 100%;
           gap: 0.5rem;
           transition: all 0.3s;
           position: absolute;
