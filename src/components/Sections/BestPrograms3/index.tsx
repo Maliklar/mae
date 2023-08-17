@@ -12,21 +12,23 @@ const BestPrograms3 = () => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const rightClickHandler = () => {
+    setDirection(0);
+
     setIndex((i) => {
       if (i + 1 < 6) {
         return i + 1;
       }
-      setDirection(0);
       return i;
     });
   };
 
   const leftClickHandler = () => {
+    setDirection(1);
+
     setIndex((i) => {
       if (i - 1 >= 0) {
         return i - 1;
       }
-      setDirection(1);
 
       return i;
     });
@@ -83,30 +85,28 @@ const BestPrograms3 = () => {
                 unmountOnExit
                 mountOnEnter
               >
-                {(state) => {
-                  return (
-                    <div
-                      className={styles.swiperItem}
-                      data-state={state}
-                      data-direction={direction}
-                    >
-                      <RoundCard
-                        title="Red Onions With Chopped Cabbage"
-                        src="url"
-                      />
-                      <RoundCard
-                        title="Red Onions With Chopped Cabbage"
-                        src="url"
-                      />
-                    </div>
-                  );
-                }}
+                {(state) => (
+                  <div
+                    className={styles.swiperItem}
+                    data-state={state}
+                    data-direction={direction}
+                  >
+                    <RoundCard
+                      title="Red Onions With Chopped Cabbage"
+                      src="url"
+                    />
+                    <RoundCard
+                      title="Red Onions With Chopped Cabbage"
+                      src="url"
+                    />
+                  </div>
+                )}
               </CSSTransition>
             ))}
-            ;
           </div>
         </div>
       </div>
+      <div className={styles.shadow} />
     </section>
   );
 };

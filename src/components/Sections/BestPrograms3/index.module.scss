@@ -72,58 +72,67 @@
           background-color: white;
         }
       }
+
       .swiper {
         display: flex;
         padding-inline-start: 1rem;
+        padding-block: 1rem;
+
         transition: transform 0.3s;
         overflow: hidden;
+        min-height: 500px;
 
         .swiperItem {
           display: flex;
           gap: 0.5rem;
           transition: all 0.3s;
+          position: absolute;
+          z-index: 100;
+
+          min-height: 100%;
           &[data-direction="1"] {
             &[data-state="entering"] {
-              position: absolute;
               transform: translateX(100%);
+              opacity: 0;
             }
             &[data-state="entered"] {
               transform: translateX(0%);
-              position: relative;
-
+              opacity: 1;
             }
             &[data-state="exiting"] {
               transform: translateX(-100%);
-              position: relative;
-
+              opacity: 0;
             }
             &[data-state="exited"] {
               transform: translateX(100%);
-              position: absolute;
+              opacity: 0;
             }
           }
-          &[data-direction="0"]{
+          &[data-direction="0"] {
             &[data-state="entering"] {
-              position: absolute;
               transform: translateX(-100%);
+              opacity: 0;
             }
             &[data-state="entered"] {
               transform: translateX(0%);
-              position: relative;
-              
+              opacity: 1;
             }
             &[data-state="exiting"] {
               transform: translateX(100%);
-              position: relative;
+              opacity: 0;
             }
             &[data-state="exited"] {
               transform: translateX(-100%);
-              position: absolute;
-
+              opacity: 0;
             }
           }
         }
       }
     }
   }
+}
+
+.shadow {
+  height: 0px;
+  box-shadow: 0px 0px 500px 60px rgba(137, 69, 236, 0.24);
 }
