@@ -7,10 +7,27 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import WideCard from "@/components/Cards/WideCard";
 import RoundCard from "@/components/Cards/RoundCard";
 import { CSSTransition } from "react-transition-group";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { isVisible } from "../BestPrograms1";
 const BestPrograms3 = () => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // Clearly not the optimal solution
+    const interval = setInterval(() => {
+      if (!sectionRef.current) return;
+
+      if (isVisible(sectionRef.current)) {
+        setVisible(true);
+        clearInterval(interval);
+      }
+    });
+  }, []);
+
   const rightClickHandler = () => {
     setDirection(0);
 
@@ -34,7 +51,11 @@ const BestPrograms3 = () => {
     });
   };
   return (
-    <section className={styles.container}>
+    <section
+      className={styles.container}
+      ref={sectionRef}
+      data-visible={visible}
+    >
       <h2 className={styles.h2}>
         <Tag Icon={FaPen} />
         Our Best Programs

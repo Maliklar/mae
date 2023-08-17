@@ -3,7 +3,25 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  transition: transform 0.3s;
+
+  &[data-visible="true"] {
+    .h2 {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+
+    .sliderContainer {
+      transform: translateX(0%);
+
+      opacity: 1;
+    }
+  }
   .h2 {
+    transition: inherit;
+    transform: translateX(-100%);
+    opacity: 0;
+
     color: #73509f;
     display: flex;
     align-items: center;
@@ -12,6 +30,8 @@
 
   .sliderContainer {
     display: flex;
+    transform: translateX(100%);
+    opacity: 0;
     align-items: flex-end;
     border-radius: 50px;
     box-shadow: 0px 0px 67px 6px rgba(137, 69, 236, 0.17);

@@ -1,13 +1,35 @@
 .container {
   display: flex;
   padding: 2.5rem;
+  overflow: hidden;
+
+  transition: transform 0.3s;
+
+  &[data-visible="true"] {
+    .start {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+
+    .end {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
 
   .start {
+    transition: inherit;
+    opacity: 0;
     min-height: 500px;
     flex: 1;
+    transform: translateX(-100%);
   }
 
   .end {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: inherit;
+
     display: flex;
     flex-direction: column;
     gap: 2rem;

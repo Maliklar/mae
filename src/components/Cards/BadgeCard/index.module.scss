@@ -8,10 +8,21 @@
     rgba(137, 69, 236, 0.1) 100%,
     rgba(137, 69, 236, 0) 100%
   );
+  transition: all 0.3s;
   border-radius: 40px;
   border: 3px solid #fff;
-  box-shadow: 0px 0px 60px 6px rgba(137, 69, 236, 0.14);
+  box-shadow: 0px 0px 10px 0px rgba(137, 69, 236, 0.14);
   min-height: 180px;
+
+  &:hover {
+    box-shadow: 0px 0px 60px 6px rgba(137, 69, 236, 0.14);
+    transform: scale(1.05);
+    background: linear-gradient(
+      317deg,
+      rgba(137, 69, 236, 0.04) 0%,
+      rgba(137, 69, 236, 0) 100%
+    );
+  }
 
   .icon {
     margin-top: -2.5rem;
@@ -24,4 +35,6 @@
     height: 100%;
     gap: 1rem;
   }
+
+  cursor: pointer;
 }
